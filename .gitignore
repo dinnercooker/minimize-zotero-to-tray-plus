@@ -1,0 +1,12 @@
+# 构建产物与本地测试残留
+dist/
+build/*.log
+build/_*/
+build/_*.*
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+node_modules/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,73 @@
+<!-- Zotero 7 偏好设置面板片段（由 Zotero.PreferencePanes 加载） -->
+<vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+      xmlns:html="http://www.w3.org/1999/xhtml">
+
+    <groupbox>
+        <caption label="托盘行为"/>
+
+        <checkbox id="mtp-close-to-tray"
+                  label="点击关闭按钮时最小化到托盘，而不是退出 Zotero"
+                  preference="extensions.minimize-to-tray-plus.closeToTray"/>
+
+        <checkbox id="mtp-autohide"
+                  label="启动时自动隐藏主窗口（静默启动，只留托盘图标）"
+                  preference="extensions.minimize-to-tray-plus.startup.autohide"/>
+
+        <separator/>
+
+        <label value="左键单击托盘图标的动作"/>
+        <radiogroup id="mtp-left-click"
+                    preference="extensions.minimize-to-tray-plus.leftClick">
+            <radio value="toggle" label="在显示与隐藏之间切换"/>
+            <radio value="show" label="仅显示 Zotero 主窗口"/>
+        </radiogroup>
+    </groupbox>
+
+    <groupbox>
+        <caption label="全局热键"/>
+
+        <checkbox id="mtp-hotkey-enabled"
+                  label="启用全局热键（在任何程序中均可显示 / 隐藏 Zotero）"
+                  preference="extensions.minimize-to-tray-plus.hotkey.enabled"/>
+
+        <hbox align="center">
+            <label value="修饰键"/>
+            <html:input id="mtp-hotkey-mods" type="text" style="width: 120px;"
+                        preference="extensions.minimize-to-tray-plus.hotkey.mods"/>
+            <label value="主键"/>
+            <html:input id="mtp-hotkey-key" type="text" maxlength="3" style="width: 56px; text-transform: uppercase;"
+                        preference="extensions.minimize-to-tray-plus.hotkey.key"/>
+        </hbox>
+
+        <description class="mtp-hint">
+            修饰键可写 Ctrl、Alt、Shift、Win，多个用加号连接，例如 Ctrl+Alt；主键为单个字母、数字或 F1—F24，例如 Z、5、F9。若组合已被其它程序占用，热键将不生效，请换一个组合。
+        </description>
+    </groupbox>
+
+    <groupbox>
+        <caption label="高级"/>
+
+        <hbox align="center">
+            <label value="本地通信端口"/>
+            <html:input id="mtp-port" type="text" maxlength="5" style="width: 80px;"
+                        preference="extensions.minimize-to-tray-plus.network.port"/>
+        </hbox>
+
+        <description class="mtp-hint">
+            填 0 表示由系统自动分配空闲端口（推荐，可彻底避免端口冲突）。修改热键、端口或左键动作后，托盘助手会自动重启，无需重启 Zotero。
+        </description>
+    </groupbox>
+
+    <groupbox>
+        <caption label="使用与排查"/>
+
+        <description class="mtp-hint">
+            托盘图标右键菜单包含：显示 Zotero、隐藏到托盘、打开首选项、退出 Zotero。要完全退出 Zotero，请使用该菜单的"退出 Zotero"，或 Zotero 菜单的"文件 → 退出"。
+        </description>
+
+        <description class="mtp-hint">
+            如果托盘图标消失或窗口无法唤出：先在本页重新勾选/取消任一设置以触发助手重启；仍无效时，可在 Zotero 配置编辑器（设置 → 高级 → 配置编辑器）中把 extensions.minimize-to-tray-plus.startup.autohide 设为 false，然后重启 Zotero。
+        </description>
+    </groupbox>
+
+</vbox>
